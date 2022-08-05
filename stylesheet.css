@@ -1,0 +1,88 @@
+body {
+  padding-top: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(41, 41, 46);
+}
+
+.calBody {
+  height: 30em;
+  width: 21em;
+  border: solid black 2px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: rgb(234, 104, 104);
+}
+
+.calOutput {
+  height: 7.5em;
+  border-radius: 12px;
+  border-bottom: solid black 1.5px;
+  display: flex;
+  align-items: stretch;
+
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 auto;
+  padding: 3%;
+}
+
+.mainInputBlock {
+  display: flex;
+
+  flex: 4 1 auto;
+  flex-direction: column;
+}
+
+.sideBlock {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  
+}
+
+.main {
+  display: flex;
+  flex: 1 1 auto;
+
+}
+
+.button {
+  flex: 1 1 0;
+  margin: 0.25em;
+  border: solid black 1.2px;
+  border-radius: 10px;
+}
+
+
+
+.zero {
+  flex: 2 1 auto;
+  padding-right: 1em;
+}
+
+.equals,
+.plus {
+  flex: 2 1 0;
+  padding-top: 0.5em;
+}
+
+#outputText {
+  margin: 4%;
+  flex: 1 1 0;
+  max-width: 90%;
+  border: solid black 1px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 3%;
+  font-size: 2.2em;
+  overflow: auto;
+  background-color: aliceblue;
+}
+
