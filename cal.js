@@ -5,6 +5,7 @@ clearDisplayButton();
 addDecimalButton();
 displayMinus();
 equalsButton();
+bindKeyboard()
 let number1 = null;
 let number2 = null;
 let sign = null;
@@ -22,24 +23,40 @@ function operate(operator, num1, num2) {
           number1 = number1.toFixed(3);
         }
       }*/
+      if((number1.toString().slice(number1.toString().indexOf(".") +
+      1).length) > 9){
+       number1 = number1.toFixed(9);
+      }
       screen.textContent = number1;
       number2 = null;
       sign = null;
       break;
     case "-":
       number1 = subtract(num1, num2);
+      if((number1.toString().slice(number1.toString().indexOf(".") +
+      1).length) > 9){
+        number1 = number1.toFixed(9);
+      }
       screen.textContent = number1;
       number2 = null;
       sign = null;
       break;
     case "*":
       number1 = multiply(num1, num2);
+      if((number1.toString().slice(number1.toString().indexOf(".") +
+      1).length) > 9){
+        number1 = number1.toFixed(9);
+      }
       screen.textContent = number1;
       number2 = null;
       sign = null;
       break;
     default:
       number1 = divide(num1, num2);
+      if((number1.toString().slice(number1.toString().indexOf(".") +
+      1).length) > 9){
+        number1 = number1.toFixed(9);
+      }
       screen.textContent = number1;
       number2 = null;
       sign = null;
@@ -175,9 +192,9 @@ function add(a, b) {
     let aLength = a.toString().slice(number1.toString().indexOf(".") + 1).length;
     let bLength = b.toString().slice(number1.toString().indexOf(".") + 1).length;
     if (aLength > bLength) {
-      return (+a + +b).toFixed(aLength);
+      return +(+a + +b).toFixed(aLength);
     }
-    else return (+a + +b).toFixed(bLength);
+    else return +(+a + +b).toFixed(bLength);
   }
   return +a + +b;
 
@@ -189,9 +206,9 @@ function subtract(a, b) {
     let aLength = a.toString().slice(number1.toString().indexOf(".") + 1).length;
     let bLength = b.toString().slice(number1.toString().indexOf(".") + 1).length;
     if (aLength > bLength) {
-      return (a - b).toFixed(aLength);
+      return +(a - b).toFixed(aLength);
     }
-    else return (a - b).toFixed(bLength);
+    else return +(a - b).toFixed(bLength);
   }
   return a - b;
 }
@@ -201,9 +218,9 @@ function multiply(a, b) {
     let aLength = a.toString().slice(number1.toString().indexOf(".") + 1).length;
     let bLength = b.toString().slice(number1.toString().indexOf(".") + 1).length;
     if (aLength > bLength) {
-      return (a * b).toFixed(aLength);
+      return +(a * b).toFixed(aLength);
     }
-    else return (a * b).toFixed(bLength);
+    else return +(a * b).toFixed(bLength);
   }
   return a * b;
 }
@@ -213,9 +230,9 @@ function divide(a, b) {
     let aLength = a.toString().slice(number1.toString().indexOf(".") + 1).length;
     let bLength = b.toString().slice(number1.toString().indexOf(".") + 1).length;
     if (aLength > bLength) {
-      return (a / b).toFixed(aLength);
+      return +(a / b).toFixed(aLength);
     }
-    else return (a / b).toFixed(bLength);
+    else return +(a / b).toFixed(bLength);
   }
   return a / b;
 }
@@ -228,5 +245,18 @@ function equalsButton() {
       number2 = screen.textContent.slice(screen.textContent.indexOf(sign, 1) + 1)
       operate(sign, number1, number2);
     }
+  });
+}
+
+function bindKeyboard() {
+  console.log("123")
+  window.addEventListener('keyup', function(e) {
+    const button = document.querySelector(`button[data-key="${e.key}"]`);
+    if(button !== null)
+    button.click();
+
+    const buttone = document.querySelector(`button[data-keye="${e.key}"]`);
+    if(buttone !== null)
+    buttone.click();
   });
 }
